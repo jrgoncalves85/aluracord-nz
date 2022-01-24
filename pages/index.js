@@ -59,7 +59,7 @@ function Titulo(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-  const username = 'peas';
+  const username = 'jrgoncalves85';
 
   return (
     <>
@@ -68,8 +68,8 @@ export default function PaginaInicial() {
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           backgroundColor: appConfig.theme.colors.primary[500],
-          backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)',
-          backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
+          backgroundImage: 'url(https://uploaddeimagens.com.br/images/003/645/169/full/1000px-silver_fern_flag.png)',
+          backgroundRepeat: 'repeat', backgroundSize: '75px', backgroundBlendMode: 'multiply',
         }}
       >
         <Box
@@ -95,7 +95,7 @@ export default function PaginaInicial() {
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
             }}
           >
-            <Titulo tag="h2">Boas vindas de volta!</Titulo>
+            <Titulo tag="h2">Seja Bem-Vindo!</Titulo>
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
             </Text>
