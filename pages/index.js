@@ -34,7 +34,7 @@ function Titulo(props) {
 
 export default function PaginaInicial() {
   //const username = 'jrgoncalves85';
-  const [username, setUsername] = React.useState('jrgoncalves85');
+  const [username, setUsername] = React.useState('');
   const roteamento = useRouter();
 
   return (
@@ -65,7 +65,7 @@ export default function PaginaInicial() {
           {/* Formulário */}
           <Box
             as="form"
-            onSubmit={ function(infosDoEvento) {
+            onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault(); // para o carregamento automático do Form
               console.log('Alguém submeteu o formulário');
               roteamento.push('/chat');
@@ -94,14 +94,14 @@ export default function PaginaInicial() {
             /> */}
 
             <TextField
-              value={username}
-              onChange={ function(event) {
+              placeholder="Informe seu usuário"
+              onChange={function (event) {
                 console.log('usuario digitou', event.target.value);
                 // Onde está o valor
                 // Trocar o valor da variável
                 // através do React e avisa quem precisa
                 const valor = event.target.value;
-                setUsername(valor);                
+                setUsername(valor);
               }}
               fullWidth
               textFieldColors={{
@@ -127,7 +127,6 @@ export default function PaginaInicial() {
           </Box>
           {/* Formulário */}
 
-
           {/* Photo Area */}
           <Box
             styleSheet={{
@@ -149,7 +148,9 @@ export default function PaginaInicial() {
                 borderRadius: '50%',
                 marginBottom: '16px',
               }}
-              src={`https://github.com/${username}.png`}
+              src={
+                username.length > 0 ? `https://github.com/${username}.png` : `https://uploaddeimagens.com.br/images/003/646/403/full/avatar.png?1643127205`
+              }
             />
             <Text
               variant="body4"
@@ -157,7 +158,7 @@ export default function PaginaInicial() {
                 color: appConfig.theme.colors.neutrals[200],
                 backgroundColor: appConfig.theme.colors.neutrals[900],
                 padding: '3px 10px',
-                borderRadius: '1000px'
+                borderRadius: '1000px',
               }}
             >
               {username}
