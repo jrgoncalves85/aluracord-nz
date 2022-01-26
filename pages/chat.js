@@ -9,7 +9,7 @@ export default function ChatPage() {
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
             id: listaDeMensagens.length + 1,
-            de: 'vanessametonini',
+            de: 'jrgoncalves85',
             texto: novaMensagem,
         };
 
@@ -179,7 +179,7 @@ function MessageList(props) {
                                     display: 'inline-block',
                                     marginRight: '8px',
                                 }}
-                                src={`https://github.com/vanessametonini.png`}
+                                src={`https://github.com/jrgoncalves85.png`}
                             />
                             <Text tag="strong">
                                 {mensagem.de}
@@ -194,6 +194,17 @@ function MessageList(props) {
                             >
                                 {(new Date().toLocaleDateString())}
                             </Text>
+
+                            <Button                                
+                                type='submit'                          
+                                label='X'    
+                                colorVariant="light"   
+                                variant="secondary"
+                                styleSheet={{
+                                    width: {sm: '20px'},
+                                    height: {sm: '20px'},                                    
+                                }}                                
+                            />
                         </Box>
                         {mensagem.texto}
                     </Text>
