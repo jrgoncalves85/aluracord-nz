@@ -1,6 +1,7 @@
 import { Box, Text, TextField, Image, Button } from '@skynexui/components';
-import React from 'react';
+import React, { useState } from 'react';
 import appConfig from '../config.json';
+
 
 export default function ChatPage() {
     const [mensagem, setMensagem] = React.useState('');
@@ -19,6 +20,15 @@ export default function ChatPage() {
         ]);
         setMensagem('');
     }
+  
+    function handleDeleteMessage(mensagemAtual) {
+        const messageId = mensagemAtual.id
+        const messageListFiltered = listaDeMensagens.filter((messageFiltered) => {
+            return messageFiltered.id != messageId
+        })
+
+        setListaDeMensagens(messageListFiltered);
+    } 
 
     return (
         <Box
@@ -58,7 +68,7 @@ export default function ChatPage() {
                     }}
                 >
 
-                    <MessageList mensagens={listaDeMensagens} />
+                    <MessageList mensagens={listaDeMensagens} handleDeleteMessage={handleDeleteMessage} />
                     {/* {listaDeMensagens.map((mensagemAtual) => {
                         return (
                             <li key={mensagemAtual.id}>
@@ -139,7 +149,9 @@ function Header() {
 }
 
 function MessageList(props) {
-    console.log(props);
+
+    const handleDeleteMessage = props.handleDeleteMessage
+    
     return (
         <Box
             tag="ul"
@@ -194,17 +206,28 @@ function MessageList(props) {
                             >
                                 {(new Date().toLocaleDateString())}
                             </Text>
-
-                            <Button                                
-                                type='submit'                          
-                                label='X'    
-                                colorVariant="light"   
-                                variant="secondary"
+                            <Button
+                                onClick={(event) => {                                
+                                        event.preventDefault();
+                                        handleDeleteMessage(mensagem);                                                  
+                                }}
+                                label="X"
+                                data-id={mensagem.id}                               
                                 styleSheet={{
-                                    width: {sm: '20px'},
-                                    height: {sm: '20px'},                                    
-                                }}                                
-                            />
+                                    fontSize: '15px',
+                                    fontWeight: 'bold',
+                                    marginLeft: 'auto',
+                                    color: '#FFF',
+                                    backgroundColor: 'rgba(0,0,0,.5)',
+                                    width: '20px',
+                                    height: '20px',                                    
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    cursor: 'pointer',
+                                }}                               
+                            >
+                            </Button>
                         </Box>
                         {mensagem.texto}
                     </Text>
