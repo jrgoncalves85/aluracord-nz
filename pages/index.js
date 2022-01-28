@@ -11,7 +11,8 @@ function Titulo(props) {
       <style jsx>{`
             ${Tag} {
                 color: ${appConfig.theme.colors.neutrals['000']};
-                font-size: 32px;
+                font-size: 28px;
+                margin-bottom: 15px;
                 font-weight: 200;            
             }
             `}
@@ -28,9 +29,10 @@ export default function PaginaInicial() {
     <>
       <Box
         styleSheet={{
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          display: 'flex', alignItems: 'center', justifyContent: 'left',
+          
           backgroundColor: appConfig.theme.colors.primary[100],
-          backgroundImage: 'url(https://uploaddeimagens.com.br/images/003/696/015/full/wallpaper_auckland.jpg?1643377704)',
+          backgroundImage: 'url(https://uploaddeimagens.com.br/images/003/696/547/original/ketchup-na-pizza.jpg?1643391926)',
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
       >
@@ -43,8 +45,8 @@ export default function PaginaInicial() {
               xs: 'column',
               sm: 'row',
             },
-            width: '100%', maxWidth: '500px',
-            borderRadius: '5px', padding: '15px', margin: '10px',
+            width: '100%', maxWidth: '530px',
+            borderRadius: '5px', padding: '30px', margin: '150px',
             boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
             backgroundColor: appConfig.theme.colors.neutrals[700],
           }}
@@ -59,10 +61,10 @@ export default function PaginaInicial() {
             }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-              width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
+              width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '2px',
             }}
           >
-            <Titulo tag="h1">Welcome to New Zealand!</Titulo>
+            <Titulo tag="h1">Vamos falar sobre algo polêmico?</Titulo>
             <Text variant="body3" styleSheet={{ marginBottom: '20px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
             </Text>

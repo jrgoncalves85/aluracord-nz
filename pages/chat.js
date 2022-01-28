@@ -85,7 +85,7 @@ export default function ChatPage() {
             styleSheet={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 backgroundColor: appConfig.theme.colors.primary[100],
-                backgroundImage: 'url(https://uploaddeimagens.com.br/images/003/696/015/full/wallpaper_auckland.jpg?1643377704)',
+                backgroundImage: 'url(https://uploaddeimagens.com.br/images/003/696/547/original/ketchup-na-pizza.jpg?1643391926)',
                 backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                 color: appConfig.theme.colors.neutrals['000']
             }}
@@ -139,7 +139,7 @@ export default function ChatPage() {
                                     handleNovaMensagem(mensagem);
                                 }
                             }}
-                            placeholder="Insira sua mensagem aqui"
+                            placeholder="Escreva aqui a sua opinião ou envie um dos nossos sticker"
                             type="textarea"
                             styleSheet={{
                                 width: '100%',
@@ -191,7 +191,7 @@ function Header() {
         <>
             <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
                 <Text variant='heading3'>
-                    O que você acha da Nova Zelândia?
+                    O que você acha de colocar ketchup na pizza?
                 </Text>
                 <Button
                     variant='tertiary'
