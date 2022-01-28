@@ -196,7 +196,19 @@ function Header() {
                 <Button
                     variant='tertiary'
                     colorVariant='neutral'
-                    label='Logout'
+                    styleSheet={{                        
+                        fontWeight: 'bold',
+                        marginLeft: 'auto',
+                        color: '#333',                        
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        width: '60px',
+                        height: '30px',                                    
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                    }}           
+                    label='Sair'
                     href="/"
                 />
             </Box>
