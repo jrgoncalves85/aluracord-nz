@@ -11,29 +11,16 @@ function Titulo(props) {
       <style jsx>{`
             ${Tag} {
                 color: ${appConfig.theme.colors.neutrals['000']};
-                font-size: 24px;
-                font-weight: 600;
+                font-size: 32px;
+                font-weight: 200;            
             }
-            `}</style>
+            `}
+      </style>
     </>
   );
 }
 
-// Componente React
-// function HomePage() {
-//     // JSX
-//     return (
-//         <div>
-//             <GlobalStyle />
-//             <Titulo tag="h2">Boas vindas de volta!</Titulo>
-//             <h2>Discord - Alura Matrix</h2>
-//         </div>
-//     )
-// }
-// export default HomePage
-
 export default function PaginaInicial() {
-  //const username = 'jrgoncalves85';
   const [username, setUsername] = React.useState('');
   const roteamento = useRouter();
 
@@ -42,9 +29,9 @@ export default function PaginaInicial() {
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backgroundColor: appConfig.theme.colors.primary[500],
-          backgroundImage: 'url(https://uploaddeimagens.com.br/images/003/645/169/full/1000px-silver_fern_flag.png)',
-          backgroundRepeat: 'repeat', backgroundSize: '75px', backgroundBlendMode: 'multiply',
+          backgroundColor: appConfig.theme.colors.primary[100],
+          backgroundImage: 'url(https://uploaddeimagens.com.br/images/003/696/015/full/wallpaper_auckland.jpg?1643377704)',
+          backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
       >
         <Box
@@ -56,8 +43,8 @@ export default function PaginaInicial() {
               xs: 'column',
               sm: 'row',
             },
-            width: '100%', maxWidth: '700px',
-            borderRadius: '5px', padding: '32px', margin: '16px',
+            width: '100%', maxWidth: '500px',
+            borderRadius: '5px', padding: '15px', margin: '10px',
             boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
             backgroundColor: appConfig.theme.colors.neutrals[700],
           }}
@@ -66,8 +53,8 @@ export default function PaginaInicial() {
           <Box
             as="form"
             onSubmit={function (infosDoEvento) {
-              infosDoEvento.preventDefault(); // para o carregamento automático do Form
-              console.log('Alguém submeteu o formulário');
+              infosDoEvento.preventDefault(); // carregamento automático do Form
+              // console.log('Alguém submeteu o formulário');
               roteamento.push(`/chat?username=${username}`);
             }}
             styleSheet={{
@@ -75,31 +62,16 @@ export default function PaginaInicial() {
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
             }}
           >
-            <Titulo tag="h2">Seja Bem-Vindo!</Titulo>
-            <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
+            <Titulo tag="h1">Welcome to New Zealand!</Titulo>
+            <Text variant="body3" styleSheet={{ marginBottom: '20px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
             </Text>
-
-            {/* <input 
-                type="text"
-                value={username}
-                onChange={ function(event) {
-                  console.log('usuario digitou', event.target.value);
-                  // Onde está o valor
-                  // Trocar o valor da variável
-                  // através do React e avisa quem precisa
-                  const valor = event.target.value;
-                  setUsername(valor);                
-                }}  
-            /> */}
-
+          
             <TextField
-              placeholder="Informe seu usuário"
+              placeholder="Informe seu usuário github"
               onChange={function (event) {
-                console.log('usuario digitou', event.target.value);
-                // Onde está o valor
-                // Trocar o valor da variável
-                // através do React e avisa quem precisa
+                // console.log('usuario digitou', event.target.value);
+                // Troca o valor da variável através do React e avisa quem precisa
                 const valor = event.target.value;
                 setUsername(valor);
               }}
@@ -170,51 +142,3 @@ export default function PaginaInicial() {
     </>
   );
 }
-
-
-/*
-function GlobalStyle() {
-    return (
-        <style global jsx >{`
-            *{
-                margin:0;
-                padding:0;
-                background-color:silver;
-            }
-            body{
-                font-family: sans-serif;
-            }
-        `}</style>
-    );
-}
-
-function Titulo(props) {
-    console.log(props);
-    const Tag = props.tag;
-    return (
-        <>
-            <Tag>{props.children}</Tag>
-            <style jsx >{`
-                ${Tag} {
-                    color: red;
-                    font-size: 24px;
-                }
-            `}</style> 
-        </>
-    );
-
-}
-
-function HomePage() {
-    return (
-        <div>
-            <GlobalStyle />
-            <Titulo tag="h2">Aluracord - New Zealand</Titulo>
-            <p>Seja Bem-Vindo!!</p>             
-        </div>
-        
-    )
-}
-  
-export default HomePage
-*/
