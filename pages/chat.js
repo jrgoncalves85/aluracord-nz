@@ -120,6 +120,10 @@ export default function ChatPage() {
 
                     <MessageList mensagens={listaDeMensagens} handleDeleteMessage={handleDeleteMessage} />
                     
+                    <Text variant="body3" styleSheet={{ marginBottom: '10px', marginLeft: '5px', color: appConfig.theme.colors.neutrals[200] }}>
+                        Envie na caixa de texto abaixo a sua opinião ou utilize um dos nossos sticker
+                    </Text>
+                   
                     <Box
                         as="form"
                         styleSheet={{
@@ -139,7 +143,7 @@ export default function ChatPage() {
                                     handleNovaMensagem(mensagem);
                                 }
                             }}
-                            placeholder="Escreva aqui a sua opinião ou envie um dos nossos sticker"
+                            placeholder="..."
                             type="textarea"
                             styleSheet={{
                                 width: '100%',
@@ -170,7 +174,7 @@ export default function ChatPage() {
                                 minWidth: '50px',
                                 minHeight: '50px',                                
                                 marginBottom: '8px',
-                                marginLeft: '10px',                                                              
+                                marginLeft: '5px',                                                              
                             }}                                                                                         
                             buttonColors={{
                                 contrastColor: appConfig.theme.colors.neutrals["000"],
