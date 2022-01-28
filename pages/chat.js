@@ -120,7 +120,16 @@ export default function ChatPage() {
 
                     <MessageList mensagens={listaDeMensagens} handleDeleteMessage={handleDeleteMessage} />
                     
-                    <Text variant="body3" styleSheet={{ marginBottom: '10px', marginLeft: '5px', color: appConfig.theme.colors.neutrals[200] }}>
+                    <Text 
+                        styleSheet={{
+                            width: '100%',      
+                            borderRadius: '5px',
+                            padding: '5px',
+                            marginRight: '10px',
+                            marginTop: '20px',                            
+                            color: appConfig.theme.colors.neutrals[100],
+                        }}
+                    >
                         Envie na caixa de texto abaixo a sua opinião ou utilize um dos nossos sticker
                     </Text>
                    
