@@ -77,6 +77,13 @@ export default function ChatPage() {
         const messageListFiltered = listaDeMensagens.filter((messageFiltered) => {
             return messageFiltered.id != messageId
         })
+        supabaseClient
+            .from('mensagens')
+            .delete()
+            .match({ id: messageId })
+            .then(({ data }) => {
+                console.log('Apagando mensagem: ', data);
+            });
         setListaDeMensagens(messageListFiltered);
     } 
 
