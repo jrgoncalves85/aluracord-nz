@@ -21,7 +21,7 @@ function escutaMensagensEmTempoReal(adicionaMensagem) {
 export default function ChatPage() {
     const roteamento = useRouter();
     const usuarioLogado = roteamento.query.username;
-    console.log('usuarioLogado', usuarioLogado);
+    // console.log('usuarioLogado', usuarioLogado);
     const [mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([ ]);
 
@@ -38,13 +38,7 @@ export default function ChatPage() {
             const subscription = escutaMensagensEmTempoReal((novaMensagem) => {
                 console.log('Nova mensagem:', novaMensagem);
                 console.log('listaDeMensagens:', listaDeMensagens);
-                // Quero reusar um valor de referencia (objeto/array) 
-                // Passar uma função pro setState
-          
-                // setListaDeMensagens([
-                //     novaMensagem,
-                //     ...listaDeMensagens
-                // ])
+                
                 setListaDeMensagens((valorAtualDaLista) => {
                     console.log('valorAtualDaLista:', valorAtualDaLista);
                     return [
@@ -61,7 +55,6 @@ export default function ChatPage() {
 
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
-            //id: listaDeMensagens.length + 1,
             de: usuarioLogado,
             texto: novaMensagem,
         };
@@ -74,16 +67,8 @@ export default function ChatPage() {
             ])
             .then(({ data }) => {
                 console.log('Criando mensagem: ', data);
-                // setListaDeMensagens([
-                //     data[0],
-                //     ...listaDeMensagens,
-                // ]);
             });
 
-        // setListaDeMensagens([
-        //     mensagem,
-        //     ...listaDeMensagens,
-        // ]);
         setMensagem('');
     }
   
@@ -92,7 +77,6 @@ export default function ChatPage() {
         const messageListFiltered = listaDeMensagens.filter((messageFiltered) => {
             return messageFiltered.id != messageId
         })
-
         setListaDeMensagens(messageListFiltered);
     } 
 
@@ -100,8 +84,8 @@ export default function ChatPage() {
         <Box
             styleSheet={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                backgroundColor: appConfig.theme.colors.primary[500],
-                backgroundImage: `url()`,
+                backgroundColor: appConfig.theme.colors.primary[100],
+                backgroundImage: 'url(https://uploaddeimagens.com.br/images/003/696/015/full/wallpaper_auckland.jpg?1643377704)',
                 backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                 color: appConfig.theme.colors.neutrals['000']
             }}
@@ -114,7 +98,7 @@ export default function ChatPage() {
                     boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
                     borderRadius: '5px',
                     backgroundColor: appConfig.theme.colors.neutrals[700],
-                    height: '100%',
+                    height: '90%',
                     maxWidth: '95%',
                     maxHeight: '95vh',
                     padding: '32px',
@@ -135,14 +119,7 @@ export default function ChatPage() {
                 >
 
                     <MessageList mensagens={listaDeMensagens} handleDeleteMessage={handleDeleteMessage} />
-                    {/* {listaDeMensagens.map((mensagemAtual) => {
-                        return (
-                            <li key={mensagemAtual.id}>
-                                {mensagemAtual.de}: {mensagemAtual.texto}
-                            </li>
-                        )
-                    })} */}
-
+                    
                     <Box
                         as="form"
                         styleSheet={{
@@ -162,7 +139,7 @@ export default function ChatPage() {
                                     handleNovaMensagem(mensagem);
                                 }
                             }}
-                            placeholder="Insira sua mensagem aqui..."
+                            placeholder="Insira sua mensagem aqui"
                             type="textarea"
                             styleSheet={{
                                 width: '100%',
@@ -177,7 +154,7 @@ export default function ChatPage() {
                         />
                         <ButtonSendSticker 
                             onStickerClick={(sticker) => {
-                                console.log('Salva esse sticker no banco', sticker);
+                                // console.log('Salva esse sticker no banco', sticker);
                                 handleNovaMensagem(':sticker: ' + sticker)
                             }}   
                         />
@@ -186,12 +163,19 @@ export default function ChatPage() {
                                     event.preventDefault();
                                     handleNovaMensagem(mensagem);                                                  
                             }}
-                            type='submit'                             
-                            size="xl"                                                                            
+                            type='submit'                          
+                            size='xl' 
+                            styleSheet={{
+                                borderRadius: '50%',                                
+                                minWidth: '50px',
+                                minHeight: '50px',                                
+                                marginBottom: '8px',
+                                marginLeft: '10px',                                                              
+                            }}                                                                                         
                             buttonColors={{
                                 contrastColor: appConfig.theme.colors.neutrals["000"],
                                 mainColor: appConfig.theme.colors.primary[500],
-                                mainColorLight: appConfig.theme.colors.primary[400],
+                                mainColorLight: appConfig.theme.colors.primary[900],
                                 mainColorStrong: appConfig.theme.colors.primary[600],
                             }}
                         />
@@ -206,8 +190,8 @@ function Header() {
     return (
         <>
             <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
-                <Text variant='heading5'>
-                    Chat
+                <Text variant='heading3'>
+                    O que você acha da Nova Zelândia?
                 </Text>
                 <Button
                     variant='tertiary'
@@ -303,8 +287,7 @@ function MessageList(props) {
                                 }}                               
                             >
                             </Button>
-                        </Box>
-                        {/* Condicional: {mensagem.texto.startsWith(':sticker:').toString()} */}
+                        </Box>                        
                         {mensagem.texto.startsWith(':sticker:')
                             ? (
                                 <Image src={mensagem.texto.replace(':sticker:', '')} />
