@@ -29,8 +29,7 @@ export default function PaginaInicial() {
     <>
       <Box
         styleSheet={{
-          display: 'flex', alignItems: 'center', justifyContent: 'left',
-          
+          display: 'flex', alignItems: 'center', justifyContent: 'left',          
           backgroundColor: appConfig.theme.colors.primary[100],
           backgroundImage: 'url(https://uploaddeimagens.com.br/images/003/696/547/original/ketchup-na-pizza.jpg?1643391926)',
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
@@ -46,7 +45,7 @@ export default function PaginaInicial() {
               sm: 'row',
             },
             width: '100%', maxWidth: '530px',
-            borderRadius: '5px', padding: '30px', margin: '150px',
+            borderRadius: '5px', padding: '30px', margin: '50px',
             boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
             backgroundColor: appConfig.theme.colors.neutrals[700],
           }}
@@ -70,6 +69,7 @@ export default function PaginaInicial() {
             </Text>
           
             <TextField
+              required
               placeholder="Informe seu usuário github"
               onChange={function (event) {
                 // console.log('usuario digitou', event.target.value);
