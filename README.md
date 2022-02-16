@@ -1,4 +1,4 @@
-# Aluracord - New Zealand
+# Aluracord - Assunto polêmico
  Projeto feito na Imersão React 4 da @alura com @omariosouto e o @peas
  Data: de 24 a 28 de janeiro de 2022
  Desenvolvido por: Júnior Gonçalves 
